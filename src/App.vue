@@ -12,20 +12,20 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script lang="ts" setup></script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  
   .content {
     width: 1200px;
-    height: 700px;
+    min-height: 700px;
     margin-top: 70px;
   }
-
+  
 }
 </style>
