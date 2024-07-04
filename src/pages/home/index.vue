@@ -7,7 +7,7 @@
   <Search/>
   <!-- 展示医院页面-->
   <el-row :gutter="20">
-    <el-col :span="12">
+    <el-col :span="20">
       <!--      等级组件-->
       <Level/>
       <!--      地区组件-->
@@ -16,8 +16,10 @@
       <div class="hospital">
         <Card v-for="item in 10" :key="item" class="item"/>
       </div>
+      <!--      分页组件-->
+    
     </el-col>
-    <el-col :span="12">444</el-col>
+    <el-col :span="4">444</el-col>
   </el-row>
 </template>
 <script lang="ts" setup>
