@@ -12,7 +12,17 @@
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import Request from "@/utils/request.ts";
+import {onMounted} from "vue";
+
+onMounted(() => {
+  Request.get('hosp/hospital/1/10').then(res => {
+    console.log(res)
+  })
+})
+
+</script>
 
 <style lang="scss" scoped>
 

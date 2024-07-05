@@ -17,7 +17,17 @@
         <Card v-for="item in 10" :key="item" class="item"/>
       </div>
       <!--      分页组件-->
-    
+      <el-pagination
+          v-model:current-page="pageNo"
+          v-model:page-size="pageSize"
+          :background="true"
+          :page-sizes="[10, 20, 30, 40]"
+          :size="size"
+          :total="400"
+          layout="total, sizes, prev, pager, next, jumper"
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+      />
     </el-col>
     <el-col :span="4">444</el-col>
   </el-row>
@@ -33,6 +43,12 @@ import Level from '@/pages/home/level/index.vue'
 import Region from '@/pages/home/region/index.vue'
 //引入医院组件
 import Card from '@/pages/home/card/index.vue'
+//准备分页需要数据
+import {ref} from 'vue'
+
+let pageNo = ref<number>(1)
+let pageSize = ref<number>(10)
+
 </script>
 <style lang="scss" scoped>
 .hospital {
