@@ -33,6 +33,9 @@
   </el-row>
 </template>
 <script lang="ts" setup>
+//引入组合式api函数
+import {onMounted, ref} from "vue";
+import {reqHospital} from "@/api/home";
 //引入轮播图组件
 import Carousel from '@/pages/home/carousel/index.vue'
 //引入搜索组件
@@ -43,11 +46,20 @@ import Level from '@/pages/home/level/index.vue'
 import Region from '@/pages/home/region/index.vue'
 //引入医院组件
 import Card from '@/pages/home/card/index.vue'
-//准备分页需要数据
-import {ref} from 'vue'
+
 
 let pageNo = ref<number>(1)
 let pageSize = ref<number>(10)
+
+//组件下载完毕后进行分页查询
+onMounted(() => {
+  getHospitalInfo()
+})
+//获取已有医院的数据
+const getHospitalInfo = async () => {
+  let result: any = await reqHospital(pageNo.value, pageSize.value)
+  console.log(result)
+}
 
 </script>
 <style lang="scss" scoped>
